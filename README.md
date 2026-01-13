@@ -1,4 +1,13 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# All-in-One Travel & Service Platform
+
+## Overview
+This project aims to build a comprehensive travel and service platform catering to **Applicants**, **Admins**, and **Service Agents**. The system will handle flight bookings, visa processing, tour packages, cargo services, hotel bookings, and more.
+
+## Tech Stack
+- **Framework**: Next.js 15+ (App Router)
+- **Styling**: Vanilla CSS (Modules) with Glassmorphism Design System
+- **Language**: TypeScript
+- **Fonts**: Inter & Outfit
 
 ## Getting Started
 
@@ -6,31 +15,21 @@ First, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `src/app/(main)`: Public facing landing page and services.
+- `src/app/(dashboard)/applicant`: Dashboard for regular users/applicants.
+- `src/app/(dashboard)/admin`: Dashboard for administrators.
+- `src/app/(dashboard)/agent`: Dashboard for service agents.
+- `src/components`: Reusable UI components (Navbar, Hero, Cards).
 
-## Learn More
+## Documentation
+See [REQUIREMENTS.md](./REQUIREMENTS.md) for detailed module breakdown and budget.
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).

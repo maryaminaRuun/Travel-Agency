@@ -1,0 +1,58 @@
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 0.5rem 0;
+    /* Reduced padding slightly to accommodate logo height */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.9);
+    /* Slightly more opaque for better logo visibility if needed */
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logoImage {
+    height: 50px;
+    width: auto;
+    /* Maintain aspect ratio */
+    object-fit: contain;
+}
+
+.links {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .links {
+        display: flex;
+        gap: 2rem;
+    }
+}
+
+.link {
+    font-weight: 500;
+    color: hsl(var(--foreground));
+    opacity: 0.8;
+    transition: opacity 0.2s;
+}
+
+.link:hover {
+    opacity: 1;
+    color: hsl(var(--primary));
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+}
