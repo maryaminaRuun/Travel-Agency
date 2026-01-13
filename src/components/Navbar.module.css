@@ -27,7 +27,7 @@
 
 .link {
     font-size: 0.95rem;
-    font-weight: 700;
+    font-weight: 600;
     color: #1e293b !important;
     /* Force dark text for visibility */
     transition: color 0.2s;
