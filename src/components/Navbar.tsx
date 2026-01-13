@@ -78,8 +78,7 @@ export default function Navbar() {
                     <div className={styles.actions}>
                         <button
                             onClick={() => setIsAuthOpen(true)}
-                            className="btn btn-outline"
-                            style={{ marginRight: '0.5rem', fontSize: '0.9rem', padding: '0.5rem 1rem' }}
+                            className={styles.loginBtn}
                         >
                             Log In
                         </button>

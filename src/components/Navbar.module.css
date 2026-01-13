@@ -7,7 +7,9 @@
     height: 72px;
     display: flex;
     align-items: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
 }
 
 .container {
@@ -25,20 +27,36 @@
 
 .link {
     font-size: 0.95rem;
-    font-weight: 600;
-    color: hsl(var(--foreground));
-    opacity: 0.8;
-    transition: opacity 0.2s;
+    font-weight: 700;
+    color: #1e293b !important;
+    /* Force dark text for visibility */
+    transition: color 0.2s;
+    cursor: pointer;
 }
 
 .link:hover {
-    opacity: 1;
-    color: hsl(var(--primary));
+    color: hsl(var(--primary)) !important;
 }
 
 .actions {
     display: flex;
     align-items: center;
+}
+
+.loginBtn {
+    background: transparent;
+    border: 1px solid #e2e8f0;
+    color: #1e293b !important;
+    padding: 0.5rem 1.25rem;
+    border-radius: 6px;
+    font-weight: 700;
+    margin-right: 0.75rem;
+    transition: all 0.2s;
+}
+
+.loginBtn:hover {
+    background: #f8fafc;
+    border-color: #cbd5e1;
 }
 
 .logoImage {
@@ -59,12 +77,12 @@
     width: 600px;
     background: white;
     border-radius: var(--radius-lg);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
     padding: 2rem;
     opacity: 0;
     visibility: hidden;
     transition: all 0.2s ease;
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .dropdownContainer:hover .megaMenu {
@@ -94,7 +112,7 @@
 .megaTitle {
     font-weight: 700;
     font-size: 1rem;
-    color: hsl(var(--foreground));
+    color: #1e293b;
     margin-bottom: 2px;
 }
 
