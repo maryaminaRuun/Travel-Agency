@@ -50,8 +50,20 @@ export default function UnifiedSearch() {
         // Simulate search processing
         await new Promise(resolve => setTimeout(resolve, 800));
         setIsSearching(false);
-        if (activeTab === 'flights') router.push('/flights');
-        else router.push(`/services/${activeTab}`);
+
+        if (activeTab === 'flights') {
+            router.push('/flights');
+        } else if (activeTab === 'hotels') {
+            router.push('/hotels');
+        } else if (activeTab === 'visa') {
+            router.push('/visa');
+        } else if (activeTab === 'tours') {
+            router.push('/tours');
+        } else if (activeTab === 'cargo') {
+            router.push('/cargo');
+        } else {
+            router.push(`/services/${activeTab}`);
+        }
     };
 
     const swapCities = () => {

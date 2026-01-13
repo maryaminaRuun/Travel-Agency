@@ -3,45 +3,29 @@
     top: 0;
     left: 0;
     right: 0;
-    z-index: 100;
-    padding: 0.5rem 0;
-    /* Reduced padding slightly to accommodate logo height */
+    z-index: 1000;
+    height: 72px;
+    display: flex;
+    align-items: center;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    background: rgba(255, 255, 255, 0.9);
-    /* Slightly more opaque for better logo visibility if needed */
 }
 
 .container {
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-}
-
-.logoImage {
-    height: 50px;
-    width: auto;
-    /* Maintain aspect ratio */
-    object-fit: contain;
+    width: 100%;
 }
 
 .links {
-    display: none;
-}
-
-@media (min-width: 768px) {
-    .links {
-        display: flex;
-        gap: 2rem;
-    }
+    display: flex;
+    align-items: center;
+    gap: 2rem;
 }
 
 .link {
-    font-weight: 500;
+    font-size: 0.95rem;
+    font-weight: 600;
     color: hsl(var(--foreground));
     opacity: 0.8;
     transition: opacity 0.2s;
@@ -55,4 +39,72 @@
 .actions {
     display: flex;
     align-items: center;
+}
+
+.logoImage {
+    object-fit: contain;
+}
+
+/* Mega Menu Styles */
+.dropdownContainer {
+    position: relative;
+    padding: 1.5rem 0;
+}
+
+.megaMenu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    width: 600px;
+    background: white;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.dropdownContainer:hover .megaMenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+.megaGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.megaItem {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: var(--radius-md);
+    transition: background 0.2s;
+}
+
+.megaItem:hover {
+    background: #f8fafc;
+}
+
+.megaTitle {
+    font-weight: 700;
+    font-size: 1rem;
+    color: hsl(var(--foreground));
+    margin-bottom: 2px;
+}
+
+.megaDesc {
+    font-size: 0.8rem;
+    color: #64748b;
+}
+
+@media (max-width: 768px) {
+    .links {
+        display: none;
+    }
 }

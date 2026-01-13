@@ -1,441 +1,155 @@
-/* Existing styles with Range Day highlight */
-.container {
+.searchBox {
     background: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    max-width: 1160px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 50;
-    font-family: var(--font-inter);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+    width: 100%;
+    overflow: hidden;
+    animation: fadeIn 0.6s ease-out;
 }
 
-.tabsHeader {
-    margin: 0;
-    padding: 0 1rem;
-    background: rgba(30, 41, 59, 0.95);
+.tabs {
     display: flex;
-    gap: 0.5rem;
-    align-items: center;
-    height: 60px;
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
+    background: #f8fafc;
+    border-bottom: 1px solid #edf2f7;
+    padding: 0 1rem;
 }
 
 .tab {
-    background: transparent;
-    border: none;
-    padding: 0.5rem 1rem;
-    font-size: 0.95rem;
-    color: rgba(255, 255, 255, 0.7);
-    cursor: pointer;
-    position: relative;
-    font-weight: 500;
+    padding: 1.25rem 1.5rem;
     display: flex;
     align-items: center;
-    gap: 8px;
-    outline: none;
-    border-radius: 20px;
+    gap: 0.75rem;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: #4a5568;
+    cursor: pointer;
     transition: all 0.2s;
+    border-bottom: 3px solid transparent;
 }
 
 .tab:hover {
-    color: white;
-    background: rgba(255, 255, 255, 0.1);
+    color: hsl(var(--primary));
 }
 
-.activeTab {
-    color: #333;
-    font-weight: 700;
-    background: white;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.tab.active {
+    color: hsl(var(--primary));
+    border-bottom-color: hsl(var(--primary));
 }
 
 .content {
-    padding: 1.5rem 2rem 2rem;
-    background: white;
-    border-bottom-left-radius: 12px;
-    border-bottom-right-radius: 12px;
+    padding: 2.5rem;
 }
 
-.flightOptions {
-    display: flex;
-    gap: 3rem;
-    margin-bottom: 1.5rem;
-    font-size: 0.95rem;
-    align-items: center;
-}
-
-.radios {
-    display: flex;
-    gap: 2rem;
-}
-
-.radioLabel {
-    display: flex;
-    align-items: center;
+.searchGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto 1fr auto 1fr auto;
     gap: 0.5rem;
-    cursor: pointer;
-    color: #333;
-    font-weight: 500;
-}
-
-.checkboxLabel {
-    display: flex;
     align-items: center;
-    gap: 0.5rem;
+}
+
+.inputGroup {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    padding: 0.75rem 1.25rem;
+    border-radius: 8px;
     cursor: pointer;
-    color: #333;
-    font-weight: 500;
-}
-
-.searchRow {
-    display: flex;
-    gap: 1rem;
-    align-items: stretch;
-}
-
-.inputWrapper {
-    position: relative;
-}
-
-.inputBox {
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    padding: 0.5rem 1rem;
-    height: 64px;
+    transition: all 0.2s;
+    height: 60px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    cursor: pointer;
-    transition: all 0.2s;
-    background: white;
 }
 
-.inputBox:hover {
-    border-color: #999;
-}
-
-.activeInput {
+.inputGroup:hover {
     border-color: hsl(var(--primary));
-    box-shadow: 0 0 0 2px rgba(38, 129, 255, 0.2);
-    z-index: 10;
-}
-
-.inputRow {
-    display: flex;
-    height: 100%;
-}
-
-.labelSmall {
-    font-size: 0.8rem;
-    color: #666;
-    margin-bottom: 4px;
-}
-
-.realInput {
-    border: none;
-    outline: none;
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #333;
-    width: 100%;
-    padding: 0;
-}
-
-.dateDisplay {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-weight: 600;
-    font-size: 1.1rem;
-    color: #333;
-}
-
-.swapIcon {
-    position: absolute;
-    right: -20px;
-    top: 50%;
-    transform: translateY(-50%);
     background: white;
-    border-radius: 50%;
-    border: 1px solid #ddd;
-    padding: 6px;
-    z-index: 20;
-    display: flex;
-    cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 12px rgba(38, 129, 255, 0.1);
 }
 
-.dropdownModal {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    margin-top: 5px;
-    width: 500px;
-    background: white;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
-    border-radius: 8px;
-    z-index: 100;
-    padding: 1.5rem;
-    cursor: default;
-    border: 1px solid #eee;
-}
-
-.ddHeader {
-    border-bottom: 2px solid #eee;
-    margin-bottom: 1rem;
-}
-
-.tabActive {
-    display: inline-block;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid hsl(var(--primary));
-    color: hsl(var(--primary));
+.label {
+    font-size: 0.75rem;
     font-weight: 700;
-    font-size: 0.95rem;
-    margin-bottom: -2px;
+    color: #718096;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 3px;
 }
 
-.currentLoc {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
-    font-size: 0.9rem;
-    color: #333;
-}
-
-.cityGrid {
-    display: flex;
-    justify-content: space-between;
-}
-
-.cityCol {
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
-}
-
-.cityItem {
-    font-size: 0.9rem;
-    color: #333;
-    cursor: pointer;
-    padding: 2px 4px;
-    border-radius: 2px;
-}
-
-.cityItem:hover {
-    background: #f0f7ff;
-    color: hsl(var(--primary));
-}
-
-/* Calendar Styles */
-.calendarContainer {
-    display: flex;
-    padding: 1rem;
-    gap: 2rem;
-}
-
-.calendarMonth {
-    width: 100%;
-}
-
-.monthHeader {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1rem;
-    font-weight: 700;
-}
-
-.navBtn {
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
-    padding: 0.5rem;
-    border-radius: 4px;
-}
-
-.navBtn:hover {
-    background: #eee;
-}
-
-.daysGrid {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 2px;
-    text-align: center;
-}
-
-.dayLabel {
-    font-size: 0.8rem;
-    color: #999;
-    margin-bottom: 0.5rem;
-}
-
-.dayCell {
-    padding: 0.5rem;
-    font-size: 0.9rem;
-    cursor: pointer;
-    border-radius: 4px;
-}
-
-.dayCell:hover {
-    background: #e6f0ff;
-}
-
-.selectedDay {
-    background: hsl(var(--primary));
-    color: white;
-    font-weight: bold;
-}
-
-.rangeDay {
-    background: #f0f7ff;
-    color: hsl(var(--primary));
-}
-
-.dayCell:empty {
-    cursor: default;
-    background: transparent;
-}
-
-
-/* Bottom Actions */
-.bottomActions {
-    display: flex;
-    gap: 1rem;
-    margin-top: 2rem;
-    align-items: flex-end;
-}
-
-.spacer {
-    flex: 1;
-}
-
-.bundleBtn {
-    background: white;
-    border: 1px solid hsl(var(--primary));
-    color: hsl(var(--primary));
-    padding: 0 2rem;
-    height: 48px;
-    border-radius: 4px;
-    font-weight: 600;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: all 0.2s;
+.value {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #1a202c;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .searchBtn {
+    height: 60px;
+    width: 140px;
     background: hsl(var(--primary));
     color: white;
     border: none;
-    border-radius: 4px;
-    padding: 0 3rem;
-    height: 48px;
+    border-radius: 8px;
     font-size: 1.1rem;
-    font-weight: 700;
+    font-weight: 800;
     cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    transition: all 0.2s;
-    box-shadow: 0 4px 10px rgba(38, 129, 255, 0.3);
+    box-shadow: 0 8px 20px rgba(38, 129, 255, 0.3);
 }
 
-.multiCityContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+.searchBtn:hover {
+    background: hsl(var(--primary-dark));
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(38, 129, 255, 0.4);
 }
 
-.multiRow {
-    display: flex;
-    gap: 1rem;
-    align-items: center;
+.searchBtn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
 }
 
-.rowNumber {
-    background: hsl(var(--primary));
-    color: white;
-    width: 24px;
-    height: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.8rem;
-    font-weight: bold;
-    border-radius: 4px;
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.removeBtn {
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: #ccc;
-    padding: 0.5rem;
-}
-
-.addFlightBtn {
-    background: none;
-    border: none;
-    color: hsl(var(--primary));
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    cursor: pointer;
-    font-size: 1rem;
-    padding: 0.5rem 0;
-}
-
-/* Passenger Dropdown */
-.passRow {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1rem;
-}
-
-.passTitle {
-    font-weight: 600;
-    font-size: 0.95rem;
-}
-
-.passSub {
-    font-size: 0.8rem;
-    color: #888;
-}
-
-.counter {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-}
-
-.cntBtn {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    border: 1px solid #ccc;
+/* Dropdown Premium Popovers */
+.dropdown {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
     background: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: hsl(var(--primary));
-    cursor: pointer;
-    transition: all 0.2s;
+    border-radius: 12px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+    z-index: 1001;
+    min-width: 320px;
+    padding: 1.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    animation: popIn 0.2s ease-out;
 }
 
-.classSelect {
-    width: 100%;
-    padding: 0.8rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    outline: none;
-    font-size: 0.95rem;
-    margin-top: 0.5rem;
+@keyframes popIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
